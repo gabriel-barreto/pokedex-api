@@ -39,12 +39,12 @@ Just a API to return all 1st generation pokemons!
 
  ## Endpoints
 List all pokemon
-> GET /pokemon
+> GET /pokemons
 
 All data of a pokemon
-> GET /pokemon/**{id}**
+> GET /pokemons/**{id}**
 
 ## Try it online!
-[List All Pokemons](https://gb-pokedex-api.herokuapp.com/pokemon)
+[List All Pokemons](https://gb-pokedex-api.herokuapp.com/pokemons)
 
-[Details from a Pokemon](https://gb-pokedex-api.herokuapp.com/pokemon/1) 
+[Details from a Pokemon](https://gb-pokedex-api.herokuapp.com/pokemons/1) 
