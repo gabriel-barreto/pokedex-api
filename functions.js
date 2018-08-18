@@ -1,18 +1,16 @@
-const path = require('path');
+const path = require("path");
 
-const readFile = (filePath = path.resolve('pokemons.json')) => (
+const readFile = (filePath = path.resolve("pokemons.json")) =>
     new Promise((resolve, reject) => {
         try {
             const file = require(filePath);
             resolve(file);
+        } catch (err) {
+            reject(err);
         }
-        catch(err) {
-            reject(err)
-        }
-    })
-);
+    });
 
-const getPokemons = () => (
+const getPokemons = () =>
     new Promise(async (resolve, reject) => {
         try {
             let pokemons = await readFile();
@@ -21,27 +19,24 @@ const getPokemons = () => (
                     id: each.id,
                     name: each.name,
                     thumb: each.thumb,
+                    types: each.types
                 };
             });
             resolve(pokemons);
-        }
-        catch(err) {
+        } catch (err) {
             reject(err);
         }
-    })
-);
+    });
 
-const getPokemon = (id = 1) => (
+const getPokemon = (id = 1) =>
     new Promise(async (resolve, reject) => {
         try {
             const pokemons = await readFile();
-            const [ pokemon ] = pokemons.filter(each => each.id == id);
+            const [pokemon] = pokemons.filter(each => each.id == id);
             resolve(pokemon);
-        }
-        catch(err) {
+        } catch (err) {
             reject(err);
         }
-    })
-);
+    });
 
 module.exports = { getPokemons, getPokemon };
