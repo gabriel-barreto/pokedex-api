@@ -12,12 +12,21 @@ const config = require('./config');
 // --> Import router
 const router = require('./routes');
 
-// --> Injecting routes
+// --> Injecting routes and middlewares
+app.use('/', (req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header(
+        'Access-Control-Allow-Headers',
+        'Origin, Content-Type'
+    );
+    res.header('Access-Control-Allow-Methods', 'GET');
+    next();
+});
 app.use(router);
 
 // --> Start server
 app.listen(config.port, () => {
     console.log('API is Online!');
-    console.log(` ==> Mode: ${config.mode}`);
-    console.log(` ==> Port: ${config.port}`);
+    console.log(` ===> Mode: ${config.mode}`);
+    console.log(` ===> Port: ${config.port}`);
 });
