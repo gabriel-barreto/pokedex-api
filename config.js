@@ -1,8 +1,7 @@
 const mode = process.env.NODE_ENV || 'development';
 const port = process.env.PORT || 5000;
-const config = {
+
+module.exports = {
     port,
     mode,
 };
-
-module.exports = config;
